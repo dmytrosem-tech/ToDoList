@@ -92,7 +92,7 @@ ul {
 .todo__list {
   padding-left: 20px;
   margin-bottom: 50px;
-  min-height: 400px;
+  min-height: 200px;
 }
 
 .todo__item {
