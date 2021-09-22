@@ -1,4 +1,9 @@
-import refs from "../js/refs.js";
+const refs = {
+  inputEl: document.querySelector(".todo__input"),
+  ulEl: document.querySelector("ul.todo__list"),
+  saveBtn: document.querySelector(".save"),
+  clearBtn: document.querySelector(".clear"),
+}
 
 function onPageLoaded() {
   function createTodo() {
@@ -24,9 +29,7 @@ function onPageLoaded() {
     console.log("hi");
     console.log(e.target);
     if (e.target.tagName === "LI") {
-      console.log("hi");
-      //   e.target.classList.toggle("checked");
-      //   console.log('lol');
+        e.target.classList.toggle("checked");
     }
   }
 
