@@ -1,14 +1,13 @@
 import refs from "../js/refs.js";
 
 function onPageLoaded() {
-  
   function createTodo() {
     const li = document.createElement("li");
+    li.classList.add("todo__item");
     const todoTaskText = document.createElement("span");
-    todoTaskText.classList.add("todo__item");
+    todoTaskText.classList.add("todo__item-span");
     const newTodo = refs.inputEl.value;
     todoTaskText.append(newTodo);
-    
 
     const deleteTaskBtn = document.createElement("span");
     deleteTaskBtn.classList.add("todo__trash");
@@ -22,12 +21,12 @@ function onPageLoaded() {
   }
 
   function onItemClick(e) {
-      console.log('hi');
-      console.log(e.target);
+    console.log("hi");
+    console.log(e.target);
     if (e.target.tagName === "LI") {
-        console.log('hi');
-    //   e.target.classList.toggle("checked");
-    //   console.log('lol');
+      console.log("hi");
+      //   e.target.classList.toggle("checked");
+      //   console.log('lol');
     }
   }
 
@@ -38,14 +37,35 @@ function onPageLoaded() {
     });
   }
 
-  refs.ulEl.addEventListener('click', onItemClick)
+  function loadTodos() {
+    const data = localStorage.getItem("todos");
+    if (data) {
+      refs.ulEl.innerHTML = data;
+    }
+
+    const deleteButtons = document.querySelectorAll("span.todo-trash");
+    for (button of deleteButtons) {
+      listenDeleteTodo(button);
+    }
+  }
+
+  refs.ulEl.addEventListener("click", onItemClick);
   refs.inputEl.addEventListener("keypress", (keyPressed) => {
     const keyEnter = 13;
     if (keyPressed.which == keyEnter) {
       createTodo();
     }
   });
-  
+
+  refs.saveBtn.addEventListener("click", () =>
+    localStorage.setItem("todos", refs.ulEl.innerHTML)
+  );
+  refs.clearBtn.addEventListener("click", () => {
+    refs.ulEl.innerHTML = "";
+    localStorage.removeItem("todos", refs.ulEl.innerHTML);
+  });
+
+  loadTodos();
 }
 
 window.addEventListener("DOMContentLoaded", onPageLoaded);

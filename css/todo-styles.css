@@ -1,3 +1,130 @@
+html {
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-height: 100%;
+  height: 100%;
+  font-family: cursive;
+  background: #f17d59;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #d4eeec, #d1e65b, #e4a32c);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #e9e4b9, #dfb25f, #df9815);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+h1 {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  background: #ec4325;
+  color: white;
+  padding: 10px 28px;
+  font-weight: normal;
+  border-radius: 5px;
+}
+
 ul {
-    list-style-type: none;
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.fas {
+  cursor: pointer;
+}
+
+.todo {
+  max-width: 80%;
+  margin: 50px auto 50px auto;
+}
+
+.todo__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+/* ------input------- */
+.todo__input {
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+  color: #df7715;
+  padding: 5px 10px;
+  border: 2px solid rgb(230, 142, 101);
+  border-radius: 3px;
+}
+
+.todo__input:hover,
+.todo__input:focus {
+  border: 2px solid rgb(240, 5, 5);
+}
+
+.todo__input:focus {
+  outline: 1px solid rgb(240, 102, 11);
+}
+
+.todo__input::placeholder {
+  color: rgb(233, 183, 149);
+  font-size: 20px;
+}
+
+.todo__input::placeholder:hover {
+  color: red;
+}
+
+/* ----- tasks list------- */
+.todo__list {
+  padding-left: 20px;
+}
+
+.todo__item {
+  margin-bottom: 15px;
+  font-size: 25px;
+  color: #ec4325;
+}
+
+/* ------Buttons--------- */
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 30px;
+}
+
+.save,
+.clear {
+  width: 49%;
+  height: 100%;
+  color: #df7715;
+  padding: 5px 10px;
+  border: 2px solid rgb(230, 142, 101);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.save:hover,
+.clear:hover {
+  border: 1px solid rgb(190, 71, 71);
+  color: #ec4325;
+}
+
+@media screen and (min-width: 770px) {
+  .todo {
+    max-width: 70%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .todo {
+    max-width: 60%;
+  }
 }
