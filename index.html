@@ -20,11 +20,28 @@
     <title>ToDoList</title>
   </head>
   <body>
-    <div class="todo">
+    <!-- <div class="todo">
       <h1 class="todo__title">
         My Tasks <i id="pencil" class="fas fa-pencil-alt"></i>
       </h1>
       <input type="text" class="todo__input" placeholder="Write a task" />
+      <ul class="todo__list"></ul>
+      
+    </div> -->
+    <div class="section">
+      <h1 class="todo__title">
+        My Tasks <i id="pencil" class="fas fa-pencil-alt"></i>
+      </h1>
+      <form class="todo__form">
+        <input
+          type="text"
+          name="query"
+          autocomplete="off"
+          class="todo__input"
+          placeholder="Search images..."
+        />
+        <button type="submit" class="task__btn">Добавить задачу в список</button>
+      </form>
       <ul class="todo__list"></ul>
       <div class="buttons">
         <button class="save">Save</button>
